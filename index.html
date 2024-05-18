@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Bài tập buổi 15</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- GOOGLE FONT ROBOTO -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body>
+    <div class="container mt-5">
+      <div class="card">
+        <h1 class="card-title">Quản lý tuyển sinh</h1>
+        <hr />
+        <div class="card-info">
+          <p>
+            Input: Điểm chuẩn của trường, điểm ưu tiên theo khu vực, điểm ưu
+            tiên theo đối tượng, điểm 3 môn
+          </p>
+          <p>
+            Output: điểm tổng 3 môn cộng điểm ưu tiên, điểm chuẩn của trường,
+            kết quả đậu hay rớt
+          </p>
+          <p>
+            Xử lý: Điểm tổng = điểm 1 + điểm 2 + điểm 3 + điểm ưu tiên khu vực
+            và đối tượng. kiểm tra xem trong 3 môn có môn nào bằng 0 thì rớt. So
+            điểm tổng với điểm chuẩn của trường, lớn hơn hoặc bằng thì đậu, bé
+            hơn thì rớt.
+          </p>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col-4">
+            <div class="card-form">
+              <input
+                type="number"
+                id="diemChuan"
+                class="card-field"
+                placeholder=""
+              />
+              <label for="diemChuan" class="card-label">Điểm chuẩn</label>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card-select">
+              <select id="khuVuc">
+                <option value="10">Chọn khu vực</option>
+                <option value="2">Khu vực A</option>
+                <option value="1">Khu vực B</option>
+                <option value="0.5">Khu vực C</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card-select">
+              <select id="doiTuong">
+                <option value="10">Chọn đối tượng</option>
+                <option value="0">Đối tượng 0</option>
+                <option value="2.5">Đối tượng 1</option>
+                <option value="1.5">Đối tượng 2</option>
+                <option value="1">Đối tượng 3</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card-form">
+              <input
+                type="number"
+                id="diem1"
+                class="card-field"
+                placeholder=""
+              />
+              <label for="diem1" class="card-label">Điểm môn thứ 1</label>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card-form">
+              <input
+                type="number"
+                id="diem2"
+                class="card-field"
+                placeholder=""
+              />
+              <label for="diem2" class="card-label">Điểm môn thứ 2</label>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card-form">
+              <input
+                type="number"
+                id="diem3"
+                class="card-field"
+                placeholder=""
+              />
+              <label for="diem3" class="card-label">Điểm môn thứ 3</label>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <h2>Kết quả</h2>
+        <button class="button" id="btn1">Kết quả</button>
+        <div id="ketQua1" class="ketqua"></div>
+      </div>
+    </div>
+    <div class="container mt-5">
+      <div class="card">
+        <h1 class="card-title">Tính tiền điện</h1>
+        <hr />
+        <div class="card-info">
+          <p>Input: Họ tên, số Kw điện đã sử dụng</p>
+          <p>
+            Output: tên người tiêu thụ điện, số tiền phải trả dựa theo số lượng
+            Kw đã tiêu thụ
+          </p>
+          <p>
+            Xử lý: tính tiền điện với điều kiện if với các khung tiền như sau:
+            (0-50Kw) = 500đ * số Kw. (50-100Kw) = 50 * 500đ + (số Kw -50) *
+            650đ. (100-200Kw) = 50 * 500đ + 50 * 650đ + (số Kw -100) * 850đ.
+            (200-350Kw) = 50 * 500đ + 50 * 650đ + 100 * 850đ + (số Kw -200) *
+            1100đ. (350-Số Kw) = 50 * 500đ + 50 * 650đ + 100 * 850đ + 150 *
+            1100đ + (số Kw -350) * 1300đ
+          </p>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col-4">
+            <div class="card-form">
+              <input type="text" id="hoTen" class="card-field" placeholder="" />
+              <label for="hoTen" class="card-label">Họ Tên</label>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card-form">
+              <input
+                type="number"
+                id="soKw"
+                class="card-field"
+                placeholder=""
+              />
+              <label for="soKw" class="card-label">Số Kw</label>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <h2>Kết quả</h2>
+        <button class="button" id="btn2">Kết quả</button>
+        <div id="ketQua2" class="ketqua"></div>
+      </div>
+    </div>
+    <div class="container mt-5">
+      <div class="card">
+        <h1 class="card-title">Tính thuế thu nhập cá nhân</h1>
+        <hr />
+        <div class="card-info">
+          <p>Input: Họ tên, tổng thu nhập năm, số người phụ thuộc</p>
+          <p>Output: tiền thuế thu nhập cá nhân</p>
+          <p>
+            Xử lý: dựa theo các khung thuế của đề bài, sử dụng if và else if để
+            tính tiền thuế dựa trên các khung thuế
+          </p>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col-4">
+            <div class="card-form">
+              <input
+                type="text"
+                id="hoTen2"
+                class="card-field"
+                placeholder=""
+              />
+              <label for="hoTen2" class="card-label">Họ Tên</label>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card-form">
+              <input
+                type="number"
+                id="tongThuNhap"
+                class="card-field"
+                placeholder=""
+              />
+              <label for="tongThuNhap" class="card-label"
+                >Tổng thu nhập năm</label
+              >
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card-form">
+              <input
+                type="number"
+                id="soNguoiPhuThuoc"
+                class="card-field"
+                placeholder=""
+              />
+              <label for="soNguoiPhuThuoc" class="card-label"
+                >Số người phụ thuộc</label
+              >
+            </div>
+          </div>
+        </div>
+        <hr />
+        <h2>Kết quả</h2>
+        <button class="button" id="btn3">Kết quả</button>
+        <div id="ketQua3" class="ketqua"></div>
+      </div>
+    </div>
+    <div class="container mt-5">
+      <div class="card">
+        <h1 class="card-title">Tính thuế thu nhập cá nhân</h1>
+        <hr />
+        <div class="card-info">
+          <p>Input: Họ tên, tổng thu nhập năm, số người phụ thuộc</p>
+          <p>Output: tiền thuế thu nhập cá nhân</p>
+          <p>
+            Xử lý: dựa theo các khung thuế của đề bài, sử dụng if và else if để
+            tính tiền thuế dựa trên các khung thuế
+          </p>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col-4">
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="nhaDan"
+                value="nhaDan"
+                checked
+                onclick="anHien()"
+              />
+              <label class="form-check-label" for="nhaDan">Nhà dân</label>
+            </div>
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="flexRadioDefault"
+                id="doanhNghiep"
+                value="nhaDan"
+                onclick="anHien()"
+              />
+              <label class="form-check-label" for="doanhNghiep">
+                Doanh nghiệp
+              </label>
+            </div>
+          </div>
+
+          <div class="col-4">
+            <div class="card-form">
+              <input
+                type="number"
+                id="kenhCaoCap"
+                class="card-field"
+                placeholder=""
+              />
+              <label for="kenhCaoCap" class="card-label">Số kênh cao cấp</label>
+            </div>
+          </div>
+          <div class="col-4" id="anHien" style="display: none">
+            <div class="card-form">
+              <input
+                type="number"
+                id="soKetNoi"
+                class="card-field"
+                placeholder=""
+              />
+              <label for="soKetNoi" class="card-label">Số kết nối</label>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <h2>Kết quả</h2>
+        <button class="button" id="btn3">Kết quả</button>
+        <div id="ketQua3" class="ketqua"></div>
+      </div>
+    </div>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./main.js"></script>
+  </body>
+</html>
