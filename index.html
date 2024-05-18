@@ -226,19 +226,23 @@
     </div>
     <div class="container mt-5">
       <div class="card">
-        <h1 class="card-title">Tính thuế thu nhập cá nhân</h1>
+        <h1 class="card-title">Tính tiền cáp</h1>
         <hr />
         <div class="card-info">
-          <p>Input: Họ tên, tổng thu nhập năm, số người phụ thuộc</p>
-          <p>Output: tiền thuế thu nhập cá nhân</p>
           <p>
-            Xử lý: dựa theo các khung thuế của đề bài, sử dụng if và else if để
-            tính tiền thuế dựa trên các khung thuế
+            Input: Loại khách hàng: doanh nghiệp hoặc nhà dân. Mã khách hàng, số
+            kênh cao cấp. Nếu là doanh nghiệp, nhập thêm số kết nối
+          </p>
+          <p>Output: Mã khách hàng và tổng giá tiền cáp</p>
+          <p>
+            Xử lý: Tổng tiền cáp phải trả: Phí xử lý hóa đơn + phí dịch vụ cơ
+            bản (+ thêm 5$ cho mỗi kết nối trên 10 đối với doanh nghiệp) + thuê
+            kênh cao cấp
           </p>
         </div>
         <hr />
         <div class="row">
-          <div class="col-4">
+          <div class="col-3">
             <div class="form-check">
               <input
                 class="form-check-input"
@@ -257,7 +261,7 @@
                 type="radio"
                 name="flexRadioDefault"
                 id="doanhNghiep"
-                value="nhaDan"
+                value="doanhNghiep"
                 onclick="anHien()"
               />
               <label class="form-check-label" for="doanhNghiep">
@@ -266,7 +270,20 @@
             </div>
           </div>
 
-          <div class="col-4">
+          <div class="col-3">
+            <div class="card-form">
+              <input
+                type="text"
+                id="maKhachHang"
+                class="card-field"
+                placeholder=""
+              />
+              <label for="maKhachHang" class="card-label"
+                >Nhập mã khách hàng</label
+              >
+            </div>
+          </div>
+          <div class="col-3">
             <div class="card-form">
               <input
                 type="number"
@@ -277,7 +294,7 @@
               <label for="kenhCaoCap" class="card-label">Số kênh cao cấp</label>
             </div>
           </div>
-          <div class="col-4" id="anHien" style="display: none">
+          <div class="col-3" id="anHien" style="display: none">
             <div class="card-form">
               <input
                 type="number"
@@ -291,8 +308,8 @@
         </div>
         <hr />
         <h2>Kết quả</h2>
-        <button class="button" id="btn3">Kết quả</button>
-        <div id="ketQua3" class="ketqua"></div>
+        <button class="button" id="btn4">Kết quả</button>
+        <div id="ketQua4" class="ketqua"></div>
       </div>
     </div>
     <!-- Bootstrap JavaScript Libraries -->

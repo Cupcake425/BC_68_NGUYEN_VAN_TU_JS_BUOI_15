@@ -102,8 +102,10 @@ function anHien() {
   }
 }
 
+// Tạo hằng số cho input radio
 const NHA_DAN = "nhaDan";
 const DOANH_NGHIEP = "doanhNghiep";
+
 function phiXuLyHoaDon(loaiKhachHang) {
   switch (loaiKhachHang) {
     case NHA_DAN:
@@ -128,3 +130,34 @@ function thueKenhCaoCap(loaiKhachHang) {
       return 50;
   }
 }
+document.getElementById("btn4").onclick = function () {
+  let maKhachHang = document.getElementById("maKhachHang").value;
+  let loaiKhachHang = document.querySelector(
+    'input[type="radio"]:checked'
+  ).value;
+  let giaPhiXuLyHoaDon = phiXuLyHoaDon(loaiKhachHang);
+  let giaPhiXuLyDichVuCoBan = phiXuLyDichVuCoBan(loaiKhachHang);
+  let giaThueKenhCaoCap = thueKenhCaoCap(loaiKhachHang);
+  let soKenhCaoCap = document.getElementById("kenhCaoCap").value * 1;
+  let soKetNoi = document.getElementById("soKetNoi").value * 1;
+  let tong = 0;
+  // nếu doanh nghiệp lắp đặt bằng hoặc dưới 10 số kết nối thì vẫn tính đủ tiền giá dịch vụ
+  if (soKetNoi <= 10) {
+    tong =
+      giaPhiXuLyHoaDon +
+      giaPhiXuLyDichVuCoBan +
+      giaThueKenhCaoCap * soKenhCaoCap;
+  } else {
+    tong =
+      giaPhiXuLyHoaDon +
+      giaPhiXuLyDichVuCoBan +
+      giaThueKenhCaoCap * soKenhCaoCap +
+      (soKetNoi - 10) * 5;
+  }
+
+  document.getElementById("ketQua4").innerHTML =
+    "Mã khách hàng: " +
+    maKhachHang +
+    ", tiền cáp là: " +
+    tong.toLocaleString("en-US", { style: "currency", currency: "USD" });
+};
